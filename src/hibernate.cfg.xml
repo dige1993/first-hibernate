@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置JDBC -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		
+		<!-- 指定使用MySQL数据库格式的SQL语句 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- 指定在控制台打印生成的SQL语句 -->
+		<property name="show_sql">true</property>
+		
+		<!-- 指定Hibernate启动时自动创建表结构 -->
+		<property name="hbm2ddl.auto">create</property>
+		
+		<!-- 加上这一句以防止未知错误 -->
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- 指定Cat类为Hibernate实体类 -->
+		<mapping class="com.levice.firsthibernate.bean.Cat"/>
+	</session-factory>
+</hibernate-configuration>
